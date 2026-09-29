@@ -2,9 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>POC</title>
+    <title>POC version 2</title>
 
     <link rel="stylesheet" href="./css/main.css" />
   </head>
@@ -12,89 +13,160 @@
   <body>
     <main>
       <section class="scene">
-        <h1 class="text">Tout commence par une idée.</h1>
+        <div class="stage">
+          <div class="world">
+            <!-- =========================
+               TEXTES
+            ========================= -->
 
-        <!-- Ligne courbée -->
-        <svg class="line" viewBox="0 0 1000 300">
-          <path d="M 0 150 C 250 20, 600 280, 1000 70"></path>
-        </svg>
+            <h1 class="text text1">
+              Tout commence par <br />
+              une idée.
+            </h1>
 
-        <!-- Premier point -->
-        <div class="Group">
-          <div class="dot dot1"></div>
+            <h1 class="text text2">Puis quelqu’un ose la partager.</h1>
 
-          <!-- Autres points -->
-          <div class="dot dot2"></div>
-          <div class="dot dot3"></div>
-          <div class="dot dot4"></div>
-          <div class="dot dot5"></div>
-          <div class="dot dot6"></div>
-          <div class="dot dot7"></div>
-          <div class="dot dot8"></div>
-          <!-- Lignes entre les points -->
-          <!-- <svg class="connections" viewBox="0 0 1000 600">
-          <line
-            class="connection connection1"
-            x1="650"
-            y1="300"
-            x2="750"
-            y2="230"
-          ></line>
-          <line
-            class="connection connection2"
-            x1="750"
-            y1="230"
-            x2="800"
-            y2="240"
-          ></line>
-          <line
-            class="connection connection3"
-            x1="650"
-            y1="300"
-            x2="580"
-            y2="301"
-          ></line>
-          </svg> -->
+            <h1 class="text text3">Quelqu’un décide d’essayer.</h1>
 
-          <!-- Image -->
-          <img class="feuille" src="./images/feuille.png" alt="feuille" />
-          <div class="illustration">
+            <h1 class="text text4">Quelqu’un lui donne vie.</h1>
+
+            <h1 class="text text5">
+              Et parfois, quelque chose de nouveau apparaît.
+            </h1>
+
+            <h1 class="text text6">Et l’idée devient réalité.</h1>
+
+            <!-- =========================
+               LIGNE
+            ========================= -->
+
+            <svg class="line" viewBox="0 0 5000 300" preserveAspectRatio="none">
+              <path
+                id="linePath"
+                d="
+                M 960 150
+
+                C 1200 60,
+                  1450 250,
+                  1750 150
+
+                C 2050 40,
+                  2300 260,
+                  2600 150
+
+                C 2900 60,
+                  3200 240,
+                  3500 150
+
+                C 3800 70,
+                  4200 220,
+                  4700 150
+              "
+              ></path>
+            </svg>
+
+            <!-- =========================
+               POINTS
+            ========================= -->
+
+            <div class="dot dot1"></div>
+
+            <img src="./images/texture.png" class="dot dot2" alt="" />
+
+            <div class="dot dot3"></div>
+
+            <img src="./images/flower.png" class="dot dot4" alt="" />
+
+            <!-- =========================
+               FORMES
+            ========================= -->
+
+            <img src="./images/share2.png" class="shape shape-one" alt="" />
+            <img src="./images/trying.jpg" class="shape shape-two" alt="" />
+
+            <div class="shape shape-three"></div>
+
+            <div class="shape shape-four"></div>
+
+            <!-- =========================
+               COMPOSITION FINALE
+            ========================= -->
+          </div>
+          <!-- COMPOSITION FINALE EN IMAGES -->
+
+          <div class="final-images">
             <img
-              src="./images/image-paysage1.png"
-              class="paysage paysage1"
+              src="./images/final1.png"
+              class="final-image final-image1"
               alt=""
             />
+
             <img
-              src="./images/image-paysage2.png"
-              class="paysage paysage2"
+              src="./images/final2.png"
+              class="final-image final-image2"
               alt=""
             />
+
             <img
-              src="./images/image-paysage3.png"
-              class="paysage paysage3"
+              src="./images/final3.png"
+              class="final-image final-image3"
               alt=""
             />
+
             <img
-              src="./images/image-paysage4.png"
-              class="paysage paysage4"
+              src="./images/final4.png"
+              class="final-image final-image4"
               alt=""
             />
           </div>
         </div>
       </section>
-      <section>
-        <div class="text-first">
-          <h2>Tout commence par une idée.</h2>
-          <p>
-            Nous vous souhaitons une année pleine d'idées, de projets et de
-            nouvelles possibilités.
-          </p>
-          <p>Belle année 2027.</p>
-        </div>
-        <div class="text-middle">
-          <!-- <img src="" alt="" /> -->
-          <!-- <p>Belle année 2027.</p>
-          <p>Belle année 2026.</p> -->
+      <section class="card-end">
+        <div class="card-end-content">
+          <img src="./images/sun.png" class="card-end-image sun" alt="" />
+          <img src="./images/water.png" class="card-end-image water" alt="" />
+
+          <img
+            src="./images/blue-mountain.png"
+            class="card-end-image blue-mountain"
+            alt=""
+          />
+          <img src="./images/bridge.png" class="card-end-image bridge" alt="" />
+
+          <img
+            src="./images/right-mountain.png"
+            class="card-end-image right-mountain"
+            alt=""
+          />
+
+          <img
+            src="./images/left-mountain.png"
+            class="card-end-image left-mountain"
+            alt=""
+          />
+          <img
+            src="./images/tree-right.png"
+            class="card-end-image right-tree"
+            alt=""
+          />
+
+          <img
+            src="./images/tree-left.png"
+            class="card-end-image left-tree"
+            alt=""
+          />
+          <img class="bird" src="./images/bird.gif" alt="" />
+
+          <!-- TEXTE -->
+
+          <div class="card-end-text">
+            <h2>Bonne année 2027.</h2>
+
+            <p>
+              Nous vous souhaitons une année pleine d'idées, de projets et de
+              nouvelles possibilités.
+            </p>
+          </div>
         </div>
       </section>
     </main>

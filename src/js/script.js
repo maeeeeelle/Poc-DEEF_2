@@ -4,284 +4,723 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function init() {
-  // -----------------
+  // =========================
   // ELEMENTS
-  // -----------------
+  // =========================
 
   const scene = document.querySelector(".scene");
-  const point = document.querySelector(".dot1");
-  const line = document.querySelector(".line");
-  const text = document.querySelector(".text");
+  const stage = document.querySelector(".stage");
+  const world = document.querySelector(".world");
 
-  // -----------------
-  // POSITION DE DEPART
-  // -----------------
+  const line = document.querySelector("#linePath");
 
-  gsap.set(point, {
-    xPercent: -50,
-    yPercent: -50,
-  });
+  const dot1 = document.querySelector(".dot1");
+  const dot2 = document.querySelector(".dot2");
+  const dot3 = document.querySelector(".dot3");
+  const dot4 = document.querySelector(".dot4");
 
-  const linePath = line.querySelector("path");
+  const text1 = document.querySelector(".text1");
+  const text2 = document.querySelector(".text2");
+  const text3 = document.querySelector(".text3");
+  const text4 = document.querySelector(".text4");
+  const text5 = document.querySelector(".text5");
+  const text6 = document.querySelector(".text6");
 
-  const lineLength = linePath.getTotalLength();
+  // =========================
+  // RESPONSIVE
+  // =========================
 
-  gsap.set(linePath, {
+  function resizeStage() {
+    const scaleX = window.innerWidth / 1920;
+    const scaleY = window.innerHeight / 1080;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    gsap.set(stage, {
+      xPercent: -50,
+      yPercent: -50,
+      scale: scale,
+    });
+
+    ScrollTrigger.refresh();
+  }
+
+  resizeStage();
+
+  window.addEventListener("resize", resizeStage);
+
+  // =========================
+  // COURBE
+  // =========================
+
+  const lineLength = line.getTotalLength();
+
+  gsap.set(line, {
     strokeDasharray: lineLength,
     strokeDashoffset: lineLength,
   });
 
-  gsap.set(".dot2, .dot3, .dot4, .dot5, .dot6, .dot7, .dot8", {
-    opacity: 0,
+  // =========================
+  // ELEMENTS CACHES
+  // =========================
+
+  gsap.set([dot1, dot2, dot3, dot4], {
     scale: 0,
   });
 
-  gsap.set(".connection", {
-    opacity: 0,
-    scaleX: 0,
-    transformOrigin: "left center",
+  gsap.set([".shape-one", ".shape-two", ".shape-three", ".shape-four"], {
+    scale: 0,
   });
 
-  // -----------------
+  gsap.set([text1, text2, text3, text4, text5, text6], {
+    opacity: 0,
+  });
+
+  // =========================
   // TIMELINE
-  // -----------------
+  // =========================
 
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: scene,
+
       start: "top top",
-      end: "+=4000",
+
+      end: "+=9000",
+
       pin: true,
+
       scrub: true,
+
       markers: true,
     },
   });
 
-  // -----------------
-  // FONCTION TEXTE
-  // -----------------
+  // ==================================================
+  // 1. PREMIER TEXTE
+  // ==================================================
 
-  function setText(newText) {
-    timeline.to(text, {
-      opacity: 0,
-      duration: 0.2,
-    });
-
-    timeline.set(text, {
-      textContent: newText,
-    });
-
-    timeline.to(text, {
-      opacity: 1,
-      duration: 0.2,
-    });
-  }
-
-  // -----------------
-  // TEXTE DE DEPART
-  // -----------------
-
-  timeline.set(text, {
-    textContent: "Tout commence par une idée.",
+  timeline.to(text1, {
     opacity: 1,
-  });
 
-  // -----------------
-  // 1. PREMIER POINT GROSSIT
-  // -----------------
-
-  timeline.to(point, {
-    scale: 3,
     duration: 1,
   });
 
-  // -----------------
-  // 2. PREMIER POINT SE DEPLACE
-  // -----------------
+  // ==================================================
+  // 2. PREMIER POINT
+  // ==================================================
 
-  setText("Puis quelqu’un ose la partager.");
+  timeline.to(dot1, {
+    scale: 1,
 
-  timeline.to(point, {
-    x: -420,
-    y: -20,
-    scale: 3,
     duration: 3,
   });
 
-  // -----------------
-  // 3. LIGNE COURBEE
-  // -----------------
+  // ==================================================
+  // 3. PREMIER POINT GRANDIT
+  // ==================================================
+
+  timeline.to(dot1, {
+    scale: 3,
+
+    duration: 2,
+  });
+
+  // ==================================================
+  // 4. CAMERA + COURBE
+  // ==================================================
+
+  timeline.to(world, {
+    x: -100,
+
+    y: 400,
+
+    rotationY: -30,
+
+    rotationX: 3,
+
+    scale: 2.2,
+
+    duration: 5,
+
+    ease: "none",
+  });
 
   timeline.to(
-    linePath,
+    line,
+
     {
-      strokeDashoffset: 0,
+      strokeDashoffset: lineLength * 0.15,
+
       duration: 5,
+
       ease: "none",
     },
+
     "<",
   );
 
-  // -----------------
-  // 4. DOT2
-  // -----------------
+  // ==================================================
+  // 5. PREMIER NOUVEAU POINT
+  // + FORME
+  // + TEXTE
+  // ==================================================
 
-  timeline.to(".dot2", {
+  timeline.to(dot2, {
+    scale: 1,
+
+    duration: 1,
+  });
+
+  timeline.to(
+    ".shape-one",
+
+    {
+      scale: 1,
+
+      duration: 1,
+    },
+
+    "<",
+  );
+
+  timeline.fromTo(
+    text2,
+
+    {
+      opacity: 0,
+
+      y: 20,
+    },
+
+    {
+      opacity: 1,
+
+      y: 0,
+
+      duration: 1,
+    },
+
+    "<",
+  );
+
+  // ==================================================
+  // 6. COURBE CONTINUE
+  // ==================================================
+
+  timeline.to(line, {
+    strokeDashoffset: lineLength * 0.35,
+
+    duration: 4,
+
+    ease: "none",
+  });
+
+  // ==================================================
+  // 7. DEUXIEME POINT
+  // + FORME
+  // + TEXTE
+  // ==================================================
+
+  timeline.to(dot3, {
+    scale: 1,
+
+    duration: 1,
+  });
+
+  timeline.to(
+    ".shape-two",
+
+    {
+      scale: 1,
+
+      duration: 1,
+    },
+
+    "<",
+  );
+
+  timeline.fromTo(
+    text3,
+
+    {
+      opacity: 0,
+
+      y: 20,
+    },
+
+    {
+      opacity: 1,
+
+      y: -140,
+
+      x: -20,
+
+      duration: 1,
+    },
+
+    "<",
+  );
+
+  // ==================================================
+  // 8. SHAPE 3 APPARAÎT AVANT LE ZOOM
+  // ==================================================
+
+  timeline.to(".shape-three", {
+    scale: 1,
+
+    duration: 1,
+  });
+
+  // ==================================================
+  // 9. CAMERA ZOOM
+  // + SHAPE 3 DEVIENT ROUGE
+  // ==================================================
+
+  timeline.to(
+    world,
+
+    {
+      scale: 1.3,
+
+      x: -1500,
+
+      y: 100,
+
+      rotationY: 0,
+
+      rotationX: 0,
+
+      duration: 4,
+
+      ease: "none",
+    },
+  );
+
+  timeline.to(
+    ".shape-three",
+
+    {
+      borderColor: "#e34a32",
+
+      duration: 4,
+
+      ease: "none",
+    },
+
+    "<",
+  );
+
+  // ==================================================
+  // 10. TROISIEME POINT
+  // + TEXTE
+  // ==================================================
+
+  timeline.to(dot4, {
+    scale: 1,
+
+    duration: 1,
+  });
+
+  timeline.fromTo(
+    text4,
+
+    {
+      opacity: 0,
+
+      y: 20,
+    },
+
+    {
+      opacity: 1,
+
+      y: 0,
+
+      duration: 1,
+
+      x: 75,
+    },
+
+    "<",
+  );
+
+  // ==================================================
+  // 11. QUATRIEME FORME
+  // + TEXTE
+  // ==================================================
+
+  timeline.to(".shape-four", {
+    scale: 1,
+
+    duration: 1,
+  });
+
+  timeline.fromTo(
+    text5,
+
+    {
+      opacity: 0,
+
+      y: 20,
+    },
+
+    {
+      opacity: 1,
+
+      y: 0,
+
+      duration: 1,
+    },
+
+    "<",
+  );
+
+  // ==================================================
+  // 12. RETOUR CAMERA
+  // ==================================================
+
+  timeline.to(world, {
+    scale: 1,
+
+    x: -1500,
+
+    y: 75,
+
+    duration: 3,
+
+    ease: "none",
+  });
+
+  // ==================================================
+  // 13. ZOOM FINAL DE LA CAMERA
+  // ==================================================
+
+  timeline.to(world, {
+    scale: 15,
+
+    x: -4500,
+
+    y: 1500,
+
+    duration: 8,
+
+    ease: "none",
+  });
+
+  // ==================================================
+  // 14. COMPOSITION FINALE
+  // ==================================================
+
+  timeline.to(".final-image1", {
     opacity: 1,
+
+    duration: 2,
+  });
+
+  timeline.to(".final-image2", {
+    opacity: 1,
+
+    duration: 2,
+  });
+
+  timeline.to(".final-image3", {
+    opacity: 1,
+
+    duration: 2,
+  });
+
+  timeline.to(".final-image4", {
+    opacity: 1,
+
+    duration: 2,
+  });
+
+  // ==================================================
+  // 15. LA CAMERA ENTRE DANS LES IMAGES
+  // ==================================================
+
+  timeline.to(".final-images", {
     scale: 2,
-    y: -190,
-    duration: 1,
+
+    duration: 5,
+
+    ease: "none",
   });
 
-  setText("Quelqu’un décide d’essayer.");
+  // ==================================================
+  // CARD END
+  // ==================================================
 
-  // -----------------
-  // 5. DOT3
-  // -----------------
+  const cardEnd = document.querySelector(".card-end");
+  const cardEndContent = document.querySelector(".card-end-content");
 
-  timeline.to(".dot3", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    y: 20,
-    x: 60,
+  // ==================================================
+  // ECHELLE 1920x1080
+  // ==================================================
+
+  function resizeCardEnd() {
+    const scaleX = window.innerWidth / 1920;
+    const scaleY = window.innerHeight / 1080;
+
+    const scale = Math.max(scaleX, scaleY);
+
+    gsap.set(cardEndContent, {
+      xPercent: -50,
+      yPercent: -50,
+
+      scale: scale,
+
+      transformOrigin: "center center",
+    });
+
+    ScrollTrigger.refresh();
+  }
+
+  resizeCardEnd();
+
+  window.addEventListener("resize", resizeCardEnd);
+
+  // ==================================================
+  // ANIMATION CARD END
+  // ==================================================
+
+  const cardEndTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: cardEnd,
+
+      start: "top top",
+
+      end: "+=2500",
+
+      pin: true,
+
+      scrub: true,
+
+      markers: true,
+    },
   });
 
-  // -----------------
-  // 6. DOT4
-  // -----------------
+  // ==================================================
+  // EAU
+  // ==================================================
 
-  timeline.to(".dot4", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    y: -310,
-    x: -110,
-  });
+  cardEndTimeline.fromTo(
+    ".water",
 
-  setText("Quelqu’un lui donne vie.");
+    {
+      opacity: 0,
 
-  // -----------------
-  // 7. LIGNES
-  // -----------------
+      scale: 0.98,
 
-  timeline.to(".connection1", {
-    opacity: 1,
-    scaleX: 1,
-    duration: 1,
-  });
+      transformOrigin: "center center",
+    },
 
-  setText("Une autre idée arrive.");
+    {
+      opacity: 1,
 
-  timeline.to(".connection2", {
-    opacity: 1,
-    scaleX: 1,
-    duration: 1,
-  });
+      scale: 1,
 
-  timeline.to(".connection3", {
-    opacity: 1,
-    scaleX: 1,
-    duration: 1,
-  });
+      duration: 1,
+    },
+  );
 
-  // -----------------
-  // 8. FEUILLE
-  // -----------------
+  // ==================================================
+  // SOLEIL
+  // ==================================================
 
-  timeline.to(".feuille", {
-    opacity: 1,
-    duration: 1,
-    rotate: 170,
-    y: 210,
-    x: -215,
-  });
+  cardEndTimeline.fromTo(
+    ".sun",
 
-  setText("Puis une autre.");
+    {
+      opacity: 0,
 
-  // -----------------
-  // 9. DOT5
-  // -----------------
+      scale: 0.98,
 
-  timeline.to(".dot5", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-  });
+      transformOrigin: "center center",
+    },
 
-  // -----------------
-  // 10. DOT6
-  // -----------------
+    {
+      opacity: 1,
 
-  timeline.to(".dot6", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-  });
+      scale: 1,
 
-  // -----------------
-  // 11. DOT7
-  // -----------------
+      duration: 1,
+    },
+  );
 
-  timeline.to(".dot7", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    x: -110,
-    y: -60,
-  });
+  // ==================================================
+  // MONTAGNE BLEUE
+  // ==================================================
 
-  // -----------------
-  // 12. DOT8
-  // -----------------
+  cardEndTimeline.fromTo(
+    ".blue-mountain",
 
-  timeline.to(".dot8", {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    y: -105,
-    x: -80,
-  });
+    {
+      opacity: 0,
 
-  // -----------------
-  // 13. PAYSAGE 1
-  // -----------------
+      scale: 0.98,
 
-  timeline.to(".paysage1", {
-    opacity: 1,
-    duration: 1,
-  });
+      transformOrigin: "center center",
+    },
 
-  setText("Et parfois, quelque chose de nouveau apparaît.");
+    {
+      opacity: 1,
 
-  // -----------------
-  // 14. PAYSAGE 2
-  // -----------------
+      scale: 1,
 
-  timeline.to(".paysage2", {
-    opacity: 1,
-    duration: 1,
-  });
+      duration: 1,
+    },
+  );
 
-  // -----------------
-  // 15. PAYSAGE 3
-  // -----------------
+  // ==================================================
+  // PONT
+  // ==================================================
 
-  timeline.to(".paysage3", {
-    opacity: 1,
-    duration: 1,
-  });
+  cardEndTimeline.fromTo(
+    ".bridge",
 
-  setText("Et l’idée devient réalité.");
+    {
+      opacity: 0,
 
-  // -----------------
-  // 16. PAYSAGE 4
-  // -----------------
+      scale: 0.98,
 
-  timeline.to(".paysage4", {
-    opacity: 1,
-    duration: 1,
-  });
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+
+      scale: 1,
+
+      duration: 1,
+    },
+  );
+
+  // ==================================================
+  // MONTAGNE DROITE
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".right-mountain",
+
+    {
+      opacity: 0,
+
+      scale: 0.98,
+
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+
+      scale: 1,
+
+      duration: 1,
+    },
+  );
+
+  // ==================================================
+  // MONTAGNE GAUCHE
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".left-mountain",
+
+    {
+      opacity: 0,
+
+      scale: 0.98,
+
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+
+      scale: 1,
+
+      duration: 1,
+    },
+  );
+
+  // ==================================================
+  // ARBRE GAUCHE
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".left-tree",
+
+    {
+      opacity: 0,
+
+      scale: 0.98,
+
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+
+      scale: 1,
+
+      duration: 1,
+    },
+  );
+
+  // ==================================================
+  // ARBRE DROITE
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".right-tree",
+
+    {
+      opacity: 0,
+
+      scale: 0.98,
+
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+
+      scale: 1,
+
+      duration: 1,
+    },
+  );
+
+  // ==================================================
+  // OISEAU
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".bird",
+
+    {
+      x: 1120,
+
+      y: -340,
+
+      rotation: -20,
+    },
+
+    {
+      x: -520,
+
+      y: 220,
+
+      rotation: -10,
+
+      duration: 5,
+
+      ease: "none",
+    },
+
+    0,
+  );
 }
 
 window.addEventListener("load", init);

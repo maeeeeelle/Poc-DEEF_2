@@ -1,3 +1,7 @@
+/* =========================
+   BASE
+========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -9,186 +13,483 @@ body {
   font-size: 16px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 3rem;
-  color: #222;
-}
-/* -----------------
+/* =========================
    SCROLL
------------------ */
+========================= */
 
 main {
-  height: 565vh;
+  height: 700vh;
 }
 
-/* -----------------
+/* =========================
    SCENE
------------------ */
-.Group {
-  max-width: 1500vh;
-}
+========================= */
 
 .scene {
   position: relative;
-  top: 0;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+/* =========================
+   PLAN 1920 x 1080
+========================= */
+
+.stage {
+  position: absolute;
+
+  width: 1920px;
+  height: 1080px;
+
+  left: 50%;
+  top: 50%;
+
+  overflow: hidden;
+
+  perspective: 1200px;
+}
+
+/* =========================
+   MONDE
+========================= */
+
+.world {
+  position: absolute;
+
+  width: 5000px;
+  height: 1080px;
+
+  left: 0;
+  top: 0;
+
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+/* =========================
+   TEXTES
+========================= */
+
+.text {
+  position: absolute;
+
+  margin: 0;
+
+  font-family: serif;
+  font-size: 48px;
+  line-height: 1.1;
+
+  color: #222;
+
+  max-width: 550px;
+
+  opacity: 0;
+
+  z-index: 20;
+}
+
+/* -------------------------
+   TEXTE 1
+------------------------- */
+
+.text1 {
+  left: 150px;
+  top: 120px;
+}
+
+/* -------------------------
+   TEXTE 2
+------------------------- */
+
+.text2 {
+  left: 1250px;
+  top: 170px;
+}
+
+/* -------------------------
+   TEXTE 3
+------------------------- */
+
+.text3 {
+  left: 1770px;
+  top: 700px;
+}
+
+/* -------------------------
+   TEXTE 4
+------------------------- */
+
+.text4 {
+  left: 2450px;
+  top: 130px;
+}
+
+/* -------------------------
+   TEXTE 5
+------------------------- */
+
+.text5 {
+  left: 2670px;
+  top: 700px;
+}
+
+/* -------------------------
+   TEXTE 6
+------------------------- */
+
+.text6 {
+  left: 3650px;
+  top: 120px;
+}
+
+/* =========================
+   LIGNE
+========================= */
+
+.line {
+  position: absolute;
+
+  left: 0;
+  top: 390px;
+
+  width: 5000px;
+  height: 300px;
+
+  overflow: visible;
+}
+
+.line path {
+  fill: none;
+
+  stroke: #111;
+  stroke-width: 4;
+
+  stroke-linecap: round;
+
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
+}
+
+/* =========================
+   POINTS
+========================= */
+
+.dot {
+  position: absolute;
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+
+  z-index: 10;
+}
+
+/* -------------------------
+   POINT 1
+------------------------- */
+
+.dot1 {
+  left: 960px;
+  top: 540px;
+
+  width: 30px;
+  height: 30px;
+
+  background: #c53230;
+}
+
+/* -------------------------
+   POINT 2
+------------------------- */
+
+.dot2 {
+  left: 1550px;
+  top: 460px;
+
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background: #c53230;
+}
+
+/* -------------------------
+   POINT 3
+------------------------- */
+
+.dot3 {
+  left: 2050px;
+  top: 650px;
+
+  width: 45px;
+  height: 45px;
+
+  background: #c53230;
+}
+
+/* -------------------------
+   POINT 4
+------------------------- */
+
+.dot4 {
+  left: 2880px;
+  top: 610px;
+
+  width: 150px;
+  height: 150px;
+}
+
+/* =========================
+   FORMES
+========================= */
+
+.shape {
+  position: absolute;
+
+  transform: scale(0);
+
+  z-index: 5;
+}
+
+/* -------------------------
+   FORME 1
+------------------------- */
+
+.shape-one {
+  position: absolute;
+
+  left: 1650px;
+  top: 240px;
+
+  width: 420px;
+  height: 240px;
+
+  object-fit: contain;
+
+  transform: scale(0);
+
+  z-index: 5;
+}
+
+/* -------------------------
+   FORME 2
+------------------------- */
+
+.shape-two {
+  left: 2150px;
+  top: 240px;
+
+  width: 300px;
+  height: 420px;
+
+  background: #c53230;
+}
+
+/* -------------------------
+   FORME 3
+------------------------- */
+
+.shape-three {
+  left: 2556px;
+  top: 350px;
+
+  width: 250px;
+  height: 250px;
+
+  border: 3px solid #111;
+  border-radius: 100%;
+}
+
+/* -------------------------
+   FORME 4
+------------------------- */
+
+.shape-four {
+  left: 3050px;
+  top: 250px;
+
+  width: 180px;
+  height: 180px;
+
+  background: repeating-linear-gradient(
+    0deg,
+    #111 0,
+    #111 4px,
+    transparent 4px,
+    transparent 8px
+  );
+
+  opacity: 0.8;
+}
+
+/* =========================
+   COMPOSITION FINALE
+========================= */
+
+.final-images {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 50;
+
+  pointer-events: none;
+}
+
+/* =========================
+   IMAGES FINALES
+========================= */
+
+.final-image {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+}
+
+/* =========================
+   PREMIERE IMAGE
+========================= */
+
+.final-image1 {
+  z-index: 1;
+}
+
+/* =========================
+   DEUXIEME IMAGE
+========================= */
+
+.final-image2 {
+  z-index: 2;
+}
+
+/* =========================
+   TROISIEME IMAGE
+========================= */
+
+.final-image3 {
+  z-index: 3;
+}
+
+/* =========================
+   QUATRIEME IMAGE
+========================= */
+
+.final-image4 {
+  z-index: 4;
+}
+/* -----------------
+   CARD END
+----------------- */
+
+.card-end {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+/* -----------------
+   PLAN 1920 x 1080
+----------------- */
+
+.card-end-content {
+  position: absolute;
+
+  width: 1920px;
+  height: 1080px;
+
+  left: 50%;
+  top: 50%;
+
+  transform-origin: center center;
+
+  overflow: hidden;
+}
+
+/* -----------------
+   IMAGES
+----------------- */
+
+.card-end-image {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+
+/* -----------------
+   EAU
+----------------- */
+
+.water {
+  opacity: 0;
+}
+
+/* -----------------
+   OISEAU
+----------------- */
+
+.bird {
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  left: 0;
+  top: 0;
+
+  object-fit: contain;
+
+  z-index: 20;
+}
+
+/* -----------------
+   AUTRES IMAGES
+----------------- */
+
+.sun,
+.blue-mountain,
+.right-mountain,
+.left-mountain,
+.right-tree,
+.left-tree,
+.bridge {
+  opacity: 0;
 }
 
 /* -----------------
    TEXTE
 ----------------- */
 
-.text {
+.card-end-text {
   position: absolute;
-  top: 10%;
-  left: 5%;
-  opacity: 1;
-  z-index: 10;
-}
-
-/* -----------------
-   POINTS
------------------ */
-
-.dot {
-  opacity: 1;
-  transform: scale(0);
-  position: absolute;
-  border-radius: 50%;
-}
-
-.dot1 {
-  width: 20px;
-  height: 20px;
 
   left: 50%;
-  top: 50%;
-  background: rgb(227, 73, 50);
-}
+  top: 22%;
 
-.dot2 {
-  left: 65%;
-  top: 50%;
-  width: 55px;
-  height: 55px;
-  background: #7ca7ca;
-}
+  transform: translateX(-50%);
 
-.dot3 {
-  left: 75%;
-  top: 38%;
-  background: #e8b52d;
-}
+  width: 700px;
 
-.dot4 {
-  left: 58%;
-  top: 49%;
-  width: 145px;
-  height: 145px;
-  background: #e8b52d;
-}
+  text-align: center;
 
-.dot5 {
-  left: 72%;
-  top: 42%;
-  width: 45px;
-  height: 45px;
-  background: #e87955;
-}
-
-.dot6 {
-  left: 42%;
-  top: 62%;
-  width: 12px;
-  height: 12px;
-  background: #2f6fa3;
-}
-
-.dot7 {
-  left: 63%;
-  top: 68%;
-  width: 95px;
-  height: 95px;
-  background: #4c8b68;
-}
-
-.dot8 {
-  left: 38%;
-  top: 38%;
-  width: 85px;
-  height: 85px;
-  background: #fad8e0;
-}
-
-/* -----------------
-   LIGNE COURBEE
------------------ */
-
-.line {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.line path {
-  fill: none;
-  stroke: black;
-  stroke-width: 3;
-  stroke-linecap: round;
-}
-
-/* -----------------
-   LIGNES ENTRE LES POINTS
------------------ */
-
-.connections {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.connection {
-  fill: none;
-  stroke: #222;
-  stroke-width: 2;
-}
-
-/* -----------------
-   FEUILLE
------------------ */
-
-.feuille {
-  position: absolute;
-  width: 180px;
-  left: 45%;
-  top: 30%;
-  opacity: 0;
-}
-
-/* -----------------
-   PAYSAGES
------------------ */
-
-.illustration {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.paysage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  object-fit: cover;
-  opacity: 0;
+  z-index: 10;
 }
