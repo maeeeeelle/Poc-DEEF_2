@@ -143,8 +143,8 @@ function init() {
   // ==================================================
 
   timeline.to(world, {
-    x: -100,
-    y: 400,
+    x: -500,
+    y: 270,
 
     rotationY: -30,
     rotationX: 3,
@@ -285,18 +285,6 @@ function init() {
     ease: "none",
   });
 
-  timeline.to(
-    ".shape-three",
-    {
-      borderColor: "#e34a32",
-
-      duration: 4,
-
-      ease: "none",
-    },
-    "<",
-  );
-
   // ==================================================
   // 10. TROISIEME POINT
   // + TEXTE
@@ -354,6 +342,18 @@ function init() {
     "<",
   );
 
+  timeline.to(
+    ".shape-three",
+    {
+      borderColor: "#dd1f15",
+      borderWidth: 10,
+
+      duration: 10,
+
+      ease: "none",
+    },
+    "<",
+  );
   // ==================================================
   // 12. RETOUR CAMERA
   // ==================================================
@@ -658,10 +658,19 @@ function init() {
 
     0,
   );
-}
 
-// =========================
-// LANCEMENT
-// =========================
+  // =========================
+  // BOUTON IMPRIMER
+  // APPARAÎT À LA FIN
+  // =========================
+
+  const printButton = document.querySelector(".print-button");
+
+  cardEndTimeline.to(printButton, {
+    opacity: 1,
+    pointerEvents: "auto",
+    duration: 1,
+  });
+}
 
 window.addEventListener("load", init);

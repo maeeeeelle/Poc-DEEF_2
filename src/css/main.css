@@ -19,15 +19,18 @@ body {
 h1 {
   margin: 0;
   font-family: serif;
-  font-size: 3rem;
+  font-family: serif;
+  font-weight: 400;
+  font-size: 3.2rem;
   color: #222;
 }
 h2 {
   font-family: serif;
   font-size: 3rem;
+  font-weight: 500;
 }
 p {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 main {
@@ -59,7 +62,7 @@ main {
 
   border-radius: 50%;
 
-  background: #c53230;
+  background: #c83027;
 }
 /* =========================
    SCENE
@@ -117,8 +120,6 @@ main {
 
   margin: 0;
 
-  font-family: serif;
-  font-size: 48px;
   line-height: 1.1;
 
   color: #222;
@@ -237,7 +238,7 @@ main {
   width: 30px;
   height: 30px;
 
-  background: #c53230;
+  background: #dd1f15;
 }
 
 /* -------------------------
@@ -251,7 +252,7 @@ main {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  background: #c53230;
+  background: #dd1f15;
 }
 
 /* -------------------------
@@ -265,7 +266,7 @@ main {
   width: 30px;
   height: 30px;
 
-  background: #c53230;
+  background: #dd1f15;
 }
 
 /* -------------------------
@@ -323,7 +324,7 @@ main {
   width: 300px;
   height: 420px;
 
-  background: #c53230;
+  background: #dd1f15;
 }
 
 /* -------------------------
@@ -346,7 +347,7 @@ main {
 ------------------------- */
 
 .shape-four {
-  left: 3050px;
+  left: 3000px;
   top: 250px;
 
   width: 180px;
@@ -598,4 +599,92 @@ main {
   text-align: center;
 
   z-index: 10;
+}
+
+/* =========================
+   BOUTON IMPRIMER
+========================= */
+
+.print-button {
+  position: fixed;
+
+  top: 30px;
+  left: 30px;
+
+  padding: 14px 22px;
+  background: transparent;
+  border: 2px solid #dd1f15;
+  color: #dd1f15;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+
+  text-decoration: none;
+
+  z-index: 100;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.print-button:hover {
+  background: #dd1f15;
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   IMPRESSION
+========================= */
+
+.print-card {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A6 landscape;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+  }
+
+  body > * {
+    display: none !important;
+  }
+
+  .print-card {
+    display: block !important;
+  }
+
+  .print-card img {
+    display: block;
+
+    width: 148mm;
+    height: 105mm;
+
+    object-fit: cover;
+
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-card img:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
 }
