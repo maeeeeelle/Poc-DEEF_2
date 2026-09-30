@@ -26,6 +26,8 @@ function init() {
   const text5 = document.querySelector(".text5");
   const text6 = document.querySelector(".text6");
 
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+
   // =========================
   // RESPONSIVE
   // =========================
@@ -77,7 +79,7 @@ function init() {
   });
 
   // =========================
-  // TIMELINE
+  // TIMELINE PRINCIPALE
   // =========================
 
   const timeline = gsap.timeline({
@@ -96,13 +98,25 @@ function init() {
     },
   });
 
+  // =========================
+  // INDICATEUR DE SCROLL
+  // =========================
+
+  timeline.to(
+    scrollIndicator,
+    {
+      opacity: 0,
+      duration: 1,
+    },
+    0,
+  );
+
   // ==================================================
   // 1. PREMIER TEXTE
   // ==================================================
 
   timeline.to(text1, {
     opacity: 1,
-
     duration: 1,
   });
 
@@ -112,7 +126,6 @@ function init() {
 
   timeline.to(dot1, {
     scale: 1,
-
     duration: 3,
   });
 
@@ -122,7 +135,6 @@ function init() {
 
   timeline.to(dot1, {
     scale: 3,
-
     duration: 2,
   });
 
@@ -132,11 +144,9 @@ function init() {
 
   timeline.to(world, {
     x: -100,
-
     y: 400,
 
     rotationY: -30,
-
     rotationX: 3,
 
     scale: 2.2,
@@ -148,7 +158,6 @@ function init() {
 
   timeline.to(
     line,
-
     {
       strokeDashoffset: lineLength * 0.15,
 
@@ -156,7 +165,6 @@ function init() {
 
       ease: "none",
     },
-
     "<",
   );
 
@@ -168,19 +176,15 @@ function init() {
 
   timeline.to(dot2, {
     scale: 1,
-
     duration: 1,
   });
 
   timeline.to(
     ".shape-one",
-
     {
       scale: 1,
-
       duration: 1,
     },
-
     "<",
   );
 
@@ -189,13 +193,11 @@ function init() {
 
     {
       opacity: 0,
-
       y: 20,
     },
 
     {
       opacity: 1,
-
       y: 0,
 
       duration: 1,
@@ -224,19 +226,15 @@ function init() {
 
   timeline.to(dot3, {
     scale: 1,
-
     duration: 1,
   });
 
   timeline.to(
     ".shape-two",
-
     {
       scale: 1,
-
       duration: 1,
     },
-
     "<",
   );
 
@@ -245,15 +243,12 @@ function init() {
 
     {
       opacity: 0,
-
       y: 20,
     },
 
     {
       opacity: 1,
-
       y: -140,
-
       x: -20,
 
       duration: 1,
@@ -263,43 +258,35 @@ function init() {
   );
 
   // ==================================================
-  // 8. SHAPE 3 APPARAÎT AVANT LE ZOOM
+  // 8. SHAPE 3 APPARAIT
   // ==================================================
 
   timeline.to(".shape-three", {
     scale: 1,
-
     duration: 1,
   });
 
   // ==================================================
-  // 9. CAMERA ZOOM
+  // 9. CAMERA
   // + SHAPE 3 DEVIENT ROUGE
   // ==================================================
 
-  timeline.to(
-    world,
+  timeline.to(world, {
+    scale: 1.3,
 
-    {
-      scale: 1.3,
+    x: -1500,
+    y: 100,
 
-      x: -1500,
+    rotationY: 0,
+    rotationX: 0,
 
-      y: 100,
+    duration: 4,
 
-      rotationY: 0,
-
-      rotationX: 0,
-
-      duration: 4,
-
-      ease: "none",
-    },
-  );
+    ease: "none",
+  });
 
   timeline.to(
     ".shape-three",
-
     {
       borderColor: "#e34a32",
 
@@ -307,7 +294,6 @@ function init() {
 
       ease: "none",
     },
-
     "<",
   );
 
@@ -318,7 +304,6 @@ function init() {
 
   timeline.to(dot4, {
     scale: 1,
-
     duration: 1,
   });
 
@@ -327,18 +312,15 @@ function init() {
 
     {
       opacity: 0,
-
       y: 20,
     },
 
     {
       opacity: 1,
-
       y: 0,
+      x: 0,
 
       duration: 1,
-
-      x: 75,
     },
 
     "<",
@@ -351,7 +333,6 @@ function init() {
 
   timeline.to(".shape-four", {
     scale: 1,
-
     duration: 1,
   });
 
@@ -360,13 +341,11 @@ function init() {
 
     {
       opacity: 0,
-
       y: 20,
     },
 
     {
       opacity: 1,
-
       y: 0,
 
       duration: 1,
@@ -383,7 +362,6 @@ function init() {
     scale: 1,
 
     x: -1500,
-
     y: 75,
 
     duration: 3,
@@ -392,14 +370,13 @@ function init() {
   });
 
   // ==================================================
-  // 13. ZOOM FINAL DE LA CAMERA
+  // 13. ZOOM FINAL
   // ==================================================
 
   timeline.to(world, {
     scale: 15,
 
     x: -4500,
-
     y: 1500,
 
     duration: 8,
@@ -413,30 +390,26 @@ function init() {
 
   timeline.to(".final-image1", {
     opacity: 1,
-
     duration: 2,
   });
 
   timeline.to(".final-image2", {
     opacity: 1,
-
     duration: 2,
   });
 
   timeline.to(".final-image3", {
     opacity: 1,
-
     duration: 2,
   });
 
   timeline.to(".final-image4", {
     opacity: 1,
-
     duration: 2,
   });
 
   // ==================================================
-  // 15. LA CAMERA ENTRE DANS LES IMAGES
+  // 15. ENTRE DANS LA COMPOSITION
   // ==================================================
 
   timeline.to(".final-images", {
@@ -455,7 +428,7 @@ function init() {
   const cardEndContent = document.querySelector(".card-end-content");
 
   // ==================================================
-  // ECHELLE 1920x1080
+  // ECHELLE 1920 x 1080
   // ==================================================
 
   function resizeCardEnd() {
@@ -509,17 +482,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
     },
   );
@@ -533,17 +502,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
     },
   );
@@ -557,41 +522,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // PONT
-  // ==================================================
-
-  cardEndTimeline.fromTo(
-    ".bridge",
-
-    {
-      opacity: 0,
-
-      scale: 0.98,
-
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-
-      scale: 1,
-
       duration: 1,
     },
   );
@@ -605,17 +542,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
     },
   );
@@ -629,17 +562,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
     },
   );
@@ -653,17 +582,13 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
     },
   );
@@ -677,18 +602,34 @@ function init() {
 
     {
       opacity: 0,
-
       scale: 0.98,
-
       transformOrigin: "center center",
     },
 
     {
       opacity: 1,
-
       scale: 1,
-
       duration: 1,
+    },
+  ); // ==================================================
+  // PONT
+  // ==================================================
+
+  cardEndTimeline.fromTo(
+    ".bridge",
+
+    {
+      opacity: 0,
+      y: -100,
+      scale: 0.98,
+      transformOrigin: "center center",
+    },
+
+    {
+      opacity: 1,
+      y: 100,
+      scale: 1,
+      duration: 2,
     },
   );
 
@@ -701,17 +642,13 @@ function init() {
 
     {
       x: 1120,
-
       y: -340,
-
       rotation: -20,
     },
 
     {
       x: -520,
-
       y: 220,
-
       rotation: -10,
 
       duration: 5,
@@ -722,5 +659,9 @@ function init() {
     0,
   );
 }
+
+// =========================
+// LANCEMENT
+// =========================
 
 window.addEventListener("load", init);

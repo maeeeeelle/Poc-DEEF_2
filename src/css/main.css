@@ -8,19 +8,59 @@
 
 body {
   margin: 0;
+
   background: #f5f2eb;
+
   font-family: Arial, sans-serif;
+
   font-size: 16px;
 }
 
-/* =========================
-   SCROLL
-========================= */
+h1 {
+  margin: 0;
+  font-family: serif;
+  font-size: 3rem;
+  color: #222;
+}
+h2 {
+  font-family: serif;
+  font-size: 3rem;
+}
+p {
+  font-size: 1.8rem;
+}
 
 main {
   height: 700vh;
 }
 
+/* =========================
+   INDICATEUR
+========================= */
+
+.scroll-indicator {
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 100;
+}
+
+.scroll-dot {
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #c53230;
+}
 /* =========================
    SCENE
 ========================= */
@@ -29,6 +69,7 @@ main {
   position: relative;
   width: 100vw;
   height: 100vh;
+
   overflow: hidden;
 }
 
@@ -121,8 +162,8 @@ main {
 ------------------------- */
 
 .text4 {
-  left: 2450px;
-  top: 130px;
+  left: 2500px;
+  top: 150px;
 }
 
 /* -------------------------
@@ -221,8 +262,8 @@ main {
   left: 2050px;
   top: 650px;
 
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
 
   background: #c53230;
 }
@@ -441,6 +482,71 @@ main {
 
 .water {
   opacity: 0;
+}
+
+/* -----------------
+   OISEAU
+----------------- */
+
+.bird {
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  left: 0;
+  top: 0;
+
+  object-fit: contain;
+
+  z-index: 20;
+}
+
+/* -----------------
+   AUTRES IMAGES
+----------------- */
+
+.sun,
+.blue-mountain,
+.right-mountain,
+.left-mountain,
+.right-tree,
+.left-tree,
+.bridge {
+  opacity: 0;
+}
+
+/* -----------------
+   DESIGN 1920 x 1080
+----------------- */
+
+.design {
+  position: absolute;
+
+  width: 1920px;
+  height: 1080px;
+
+  left: 50%;
+  top: 50%;
+}
+
+/* -----------------
+   TEXTE
+----------------- */
+
+.card-end-text {
+  position: absolute;
+
+  left: 50%;
+  top: 22%;
+
+  transform: translateX(-50%);
+
+  width: 700px;
+
+  text-align: center;
+
+  z-index: 10;
 }
 
 /* -----------------

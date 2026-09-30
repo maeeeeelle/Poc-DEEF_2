@@ -5,14 +5,34 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>POC version 2</title>
+    <title>2 POC version 2</title>
 
     <link rel="stylesheet" href="./css/main.css" />
   </head>
 
   <body>
+    <!-- CURSEUR -->
+
     <main>
       <section class="scene">
+        <div class="scroll-indicator">
+          <span class="scroll-dot"></span>
+          <p>Scroll</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="19"
+            viewBox="0 0 17 19"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.5 0C8.82199 0 9.13079 0.125098 9.35848 0.347772C9.58616 0.570447 9.71407 0.872458 9.71407 1.18737V14.9442L14.9248 9.84565C15.0377 9.73525 15.1717 9.64768 15.3192 9.58794C15.4667 9.52819 15.6248 9.49744 15.7844 9.49744C15.944 9.49744 16.1021 9.52819 16.2496 9.58794C16.3971 9.64768 16.5311 9.73525 16.644 9.84565C16.7568 9.95605 16.8464 10.0871 16.9075 10.2313C16.9686 10.3756 17 10.5302 17 10.6863C17 10.8424 16.9686 10.997 16.9075 11.1413C16.8464 11.2855 16.7568 11.4166 16.644 11.527L9.35956 18.6512C9.24678 18.7617 9.11281 18.8495 8.96531 18.9093C8.81781 18.9692 8.65969 19 8.5 19C8.34031 19 8.18219 18.9692 8.03469 18.9093C7.88719 18.8495 7.75322 18.7617 7.64044 18.6512L0.356041 11.527C0.243162 11.4166 0.153622 11.2855 0.0925321 11.1413C0.0314425 10.997 0 10.8424 0 10.6863C0 10.5302 0.0314425 10.3756 0.0925321 10.2313C0.153622 10.0871 0.243162 9.95605 0.356041 9.84565C0.584011 9.62269 0.893204 9.49744 1.2156 9.49744C1.37524 9.49744 1.53331 9.52819 1.68079 9.58794C1.82827 9.64768 1.96228 9.73525 2.07516 9.84565L7.28593 14.9442V1.18737C7.28593 0.872458 7.41384 0.570447 7.64153 0.347772C7.86921 0.125098 8.17801 0 8.5 0Z"
+              fill="black"
+            />
+          </svg>
+        </div>
         <div class="stage">
           <div class="world">
             <!-- =========================
@@ -125,14 +145,11 @@
         <div class="card-end-content">
           <img src="./images/sun.png" class="card-end-image sun" alt="" />
           <img src="./images/water.png" class="card-end-image water" alt="" />
-
           <img
             src="./images/blue-mountain.png"
             class="card-end-image blue-mountain"
             alt=""
           />
-          <img src="./images/bridge.png" class="card-end-image bridge" alt="" />
-
           <img
             src="./images/right-mountain.png"
             class="card-end-image right-mountain"
@@ -155,6 +172,7 @@
             class="card-end-image left-tree"
             alt=""
           />
+          <img src="./images/bridge.png" class="card-end-image bridge" alt="" />
           <img class="bird" src="./images/bird.gif" alt="" />
 
           <!-- TEXTE -->
