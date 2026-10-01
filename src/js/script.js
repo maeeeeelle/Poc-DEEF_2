@@ -12,7 +12,7 @@ function init() {
   const stage = document.querySelector(".stage");
   const world = document.querySelector(".world");
 
-  const line = document.querySelector("#linePath");
+  const line = document.querySelector(".line path");
 
   const dot1 = document.querySelector(".dot1");
   const dot2 = document.querySelector(".dot2");
