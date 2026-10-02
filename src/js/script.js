@@ -94,7 +94,7 @@ function init() {
 
       scrub: true,
 
-      markers: true,
+      // markers: true,
     },
   });
 
@@ -268,7 +268,6 @@ function init() {
 
   // ==================================================
   // 9. CAMERA
-  // + SHAPE 3 DEVIENT ROUGE
   // ==================================================
 
   timeline.to(world, {
@@ -316,7 +315,7 @@ function init() {
 
   // ==================================================
   // 11. QUATRIEME FORME
-  // + TEXTE
+  // + TEXTE  // + SHAPE 3 DEVIENT ROUGE
   // ==================================================
 
   timeline.to(".shape-four", {
@@ -469,7 +468,7 @@ function init() {
 
       scrub: true,
 
-      markers: true,
+      // markers: true,
     },
   });
 
@@ -477,141 +476,22 @@ function init() {
   // EAU
   // ==================================================
 
-  cardEndTimeline.fromTo(
+  [
     ".water",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // SOLEIL
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".sun",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // MONTAGNE BLEUE
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".blue-mountain",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // MONTAGNE DROITE
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".right-mountain",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // MONTAGNE GAUCHE
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".left-mountain",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // ARBRE GAUCHE
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".left-tree",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  );
-
-  // ==================================================
-  // ARBRE DROITE
-  // ==================================================
-
-  cardEndTimeline.fromTo(
     ".right-tree",
-
-    {
-      opacity: 0,
-      scale: 0.98,
-      transformOrigin: "center center",
-    },
-
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-    },
-  ); // ==================================================
+  ].forEach((selector) => {
+    cardEndTimeline.fromTo(
+      selector,
+      { opacity: 0, scale: 0.98, transformOrigin: "center center" },
+      { opacity: 1, scale: 1, duration: 1 },
+    );
+  });
+  // ==================================================
   // PONT
   // ==================================================
 

@@ -19,7 +19,6 @@ body {
 h1 {
   margin: 0;
   font-family: serif;
-  font-family: serif;
   font-weight: 400;
   font-size: 3.2rem;
   color: #222;
@@ -298,8 +297,6 @@ main {
 ------------------------- */
 
 .shape-one {
-  position: absolute;
-
   left: 1650px;
   top: 240px;
 
@@ -307,10 +304,6 @@ main {
   height: 240px;
 
   object-fit: contain;
-
-  transform: scale(0);
-
-  z-index: 5;
 }
 
 /* -------------------------
@@ -518,71 +511,6 @@ main {
 }
 
 /* -----------------
-   DESIGN 1920 x 1080
------------------ */
-
-.design {
-  position: absolute;
-
-  width: 1920px;
-  height: 1080px;
-
-  left: 50%;
-  top: 50%;
-}
-
-/* -----------------
-   TEXTE
------------------ */
-
-.card-end-text {
-  position: absolute;
-
-  left: 50%;
-  top: 22%;
-
-  transform: translateX(-50%);
-
-  width: 700px;
-
-  text-align: center;
-
-  z-index: 10;
-}
-
-/* -----------------
-   OISEAU
------------------ */
-
-.bird {
-  position: absolute;
-
-  width: 480px;
-  height: 480px;
-
-  left: 0;
-  top: 0;
-
-  object-fit: contain;
-
-  z-index: 20;
-}
-
-/* -----------------
-   AUTRES IMAGES
------------------ */
-
-.sun,
-.blue-mountain,
-.right-mountain,
-.left-mountain,
-.right-tree,
-.left-tree,
-.bridge {
-  opacity: 0;
-}
-
-/* -----------------
    TEXTE
 ----------------- */
 
@@ -637,54 +565,4 @@ main {
   color: white;
 
   transform: translateY(-2px);
-}
-
-/* =========================
-   IMPRESSION
-========================= */
-
-.print-card {
-  display: none;
-}
-
-@media print {
-  @page {
-    size: A6 landscape;
-    margin: 0;
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background: white;
-  }
-
-  body > * {
-    display: none !important;
-  }
-
-  .print-card {
-    display: block !important;
-  }
-
-  .print-card img {
-    display: block;
-
-    width: 148mm;
-    height: 105mm;
-
-    object-fit: cover;
-
-    page-break-after: always;
-    break-after: page;
-  }
-
-  .print-card img:last-child {
-    page-break-after: auto;
-    break-after: auto;
-  }
 }
