@@ -1,237 +1,171 @@
-# eikon parcel starter
+# Carte de vœux DEEF — 2027
+
+Projet de carte de vœux digitale réalisé dans le cadre du projet DEEF / eikon.
+
+L’expérience se découvre progressivement au fil du scroll. Des points, une ligne, des formes, des images et des textes apparaissent successivement pour construire une composition finale.
+
+## Technologies
+
+- HTML
+- CSS
+- JavaScript
+- GSAP
+- ScrollTrigger
+- Parcel
 
 ## Prérequis
 
-- Git installé
-- NPM installé
+- Git
+- Node.js
+- NPM
 
 ## Installation
 
-Cloner le repository git
+Cloner le repository GitHub :
 
-```
-git clone git@github.com:eikon-frontend/starterkit.git <nom du projet>
+```bash
+git clone <https://github.com/maeeeeelle/Poc-DEEF_2.git>
 ```
 
-Se rendre dans le dossier du projet, puis installer les dépendances avec NPM
+Entrer dans le dossier créé par Git :
 
+```bash
+cd <NOM-DU-DOSSIER>
 ```
-cd <nom-du-projet>
+
+Installer les dépendances :
+
+```bash
 npm install
 ```
 
-## Commandes
+## Développement
 
-Compiler la SCSS, aggréger le JS, lancer le serveur et écouter les changements
+Lancer le serveur de développement :
 
-```
+```bash
 npm run dev
 ```
 
-Compiler pour la production
+Le projet est alors disponible sur l’adresse indiquée dans le terminal.
 
-```
+## Build
+
+Créer la version de production :
+
+```bash
 npm run build
 ```
 
-## Utilisation
+Le résultat est généré dans le dossier :
 
-### HTML
-
-Inclure un fichier _header.html_ depuis un fichier HTML
-
-```html
-<include src="components/header.html"></include>
+```text
+dist/
 ```
 
-### SCSS
+## Structure du projet
 
-Inclure un fichier _main.scss_ depuis un fichier HTML
-
-```html
-<link rel="stylesheet" href="scss/main.scss" />
+```text
+projet/
+├── src/
+│   ├── index.html
+│   ├── css/
+│   │   └── main.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
-Inclure un fichier _\_base.scss_ depuis un fichier SCSS
+## Animation
 
-```scss
-@import "base";
+L’animation principale est réalisée avec GSAP et ScrollTrigger.
+
+Le fichier principal de l’animation est :
+
+```text
+src/js/script.js
 ```
 
-### JS
+Il contrôle notamment :
 
-Inclure un fichier _main.js_ depuis un fichier HTML
+- les apparitions des points
+- les apparitions des formes
+- les apparitions des textes
+- les déplacements du monde
+- les zooms
+- le dessin progressif de la ligne
+- la composition finale
 
-```html
-<script src="js/main.js" type="module"></script>
-```
-
-Inclure un fichier _carousel.js_ depuis un fichier JS
+Les marqueurs de ScrollTrigger sont actuellement cachés.
 
 ```js
-import "./carousel.js";
+markers: true;
 ```
 
-## Exemples d'utilisation de packages externes
+Ils peuvent être supprimés avant la mise en ligne.
 
-### [AOS](https://michalsnik.github.io/aos)
+## Images
 
-Installer le paquet avec NPM
+Les images du projet sont stockées dans :
 
-```
-npm install aos@next
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import AOS from "aos";
+```text
+src/images/
 ```
 
-Inclure la CSS depuis un fichier SCSS
+Les images peuvent être remplacées ou modifiées directement depuis ce dossier.
 
-```SCSS
-@import "../../node_modules/aos/dist/aos.css";
+## Composition finale
+
+La composition finale utilise plusieurs images superposées :
+
+```text
+final1.png
+final2.png
+final3.png
+final4.png
 ```
 
-### [Bootstrap](https://getbootstrap.com)
+Elles apparaissent progressivement à la fin de l’animation.
 
-Installer le paquet avec NPM
+## Carte imprimée
 
-```
-npm install bootstrap
-```
+Une version imprimable de la carte peut être ajoutée avec un pdf.
 
-Inclure la SCSS depuis un fichier SCSS
+Les fichiers peuvent être placés dans :
 
-```SCSS
-@import "bootstrap/scss/bootstrap-grid";
+```text
+src/images/
 ```
 
-### [Flickity](https://flickity.metafizzy.co)
+Par exemple :
 
-Installer le paquet avec NPM
-
-```
-npm install flickity
+```text
+carte.pdf
 ```
 
-Inclure le JS depuis un fichier JS
+## Partage du projet
 
-```js
-import Flickity from "flickity";
+Pour travailler sur le projet depuis un autre ordinateur :
+
+```bash
+git clone <https://github.com/maeeeeelle/Poc-DEEF_2.git>
+cd <NOM-DU-DOSSIER>
+npm install
+npm run dev
 ```
 
-Inclure la CSS depuis un fichier SCSS
+Le dossier `node_modules` n’a pas besoin d’être partagé : il est recréé avec `npm install`.
 
-```SCSS
-@import "../../node_modules/flickity/dist/flickity.css";
+## Mise en ligne
+
+Pour générer la version destinée à la production :
+
+```bash
+npm run build
 ```
 
-### [Font Awesome](https://fontawesome.com/)
-
-Installer le paquet avec NPM
-
-```
-npm install @fortawesome/fontawesome-free
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import "@fortawesome/fontawesome-free/js/all.js";
-```
-
-### [GSAP](https://greensock.com/gsap/)
-
-Installer le paquet avec NPM
-
-```
-npm install gsap
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import gsap from "gsap";
-```
-
-Inclure les éventuels plugins
-
-```js
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-```
-
-### [Masonry](https://masonry.desandro.com)
-
-Installer le paquet avec NPM
-
-```
-npm install masonry-layout
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import Masonry from "masonry-layout";
-```
-
-### [ScrollMagic](https://scrollmagic.io)
-
-Installer le paquet avec NPM
-
-```
-npm install scrollmagic
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import ScrollMagic from "scrollmagic";
-```
-
-### [Swiper](https://swiperjs.com)
-
-Installer le paquet avec NPM
-
-```
-npm install swiper@6
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
-
-Swiper.use([Navigation, Pagination]);
-```
-
-Inclure la SCSS depuis un fichier SCSS
-
-```SCSS
-@import "swiper/swiper";
-```
-
-### [three.js](https://threejs.org)
-
-Installer le paquet avec NPM
-
-```
-npm install three
-```
-
-Inclure le JS depuis un fichier JS
-
-```js
-import * as THREE from "three";
-```
-
-## Exemple
-
-Un exemple avec l'installation des packages ci-desssus est disponible sur la branche _examples_
-
-```
-git checkout examples
-```
+Le contenu généré dans `dist/` peut ensuite être utilisé pour la mise en ligne.
